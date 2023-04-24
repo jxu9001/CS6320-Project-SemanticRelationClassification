@@ -1,0 +1,31 @@
+PREPROCESSED TRAINING SET STATISTICS
++-------------------+-------------------+---------+
+| name of relation  | count of relation | %       |
++-------------------+-------------------+---------+
+| Other             | 4835              | 60.4375 |
+| Cause-Effect      | 1003              | 12.5375 |
+| Component-Whole   | 941               | 11.7625 |
+| Product-Producer  | 717               | 8.9625  |
+| Instrument-Agency | 504               | 6.3     |
++-------------------+-------------------+---------+
+
+TRAINING STATISTICS
+250/250 [==============================] - 2s 4ms/step
+accuracy on the train set when considering only the relation = 91.79%
+accuracy on the train set when considering relation and direction = 90.48%
+
+PREPROCESSED TESTING SET STATISTICS
++-------------------+-------------------+---------+
+| name of relation  | count of relation | %       |
++-------------------+-------------------+---------+
+| Other             | 1690              | 60.4375 |
+| Cause-Effect      | 328               | 12.5375 |
+| Component-Whole   | 312               | 11.7625 |
+| Product-Producer  | 231               | 8.9625  |
+| Instrument-Agency | 156               | 6.3     |
++-------------------+-------------------+---------+
+
+TESTING STATISTICS
+85/85 [==============================] - 1s 4ms/step
+accuracy on the test set when considering only the relation = 73.02%
+accuracy on the test set when considering relation and direction = 65.92%
