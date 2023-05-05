@@ -1,0 +1,162 @@
++-----------------+--------------------------+--------------------------+---------+
+| sentence number | predicted relation       | actual relation          | correct |
++-----------------+--------------------------+--------------------------+---------+
+| 8018            | Instrument-Agency(e2,e1) | Other                    | No      |
+| 8190            | Component-Whole(e2,e1)   | Instrument-Agency(e2,e1) | No      |
+| 8194            | Component-Whole(e2,e1)   | Component-Whole(e2,e1)   | Yes     |
+| 8327            | Other                    | Other                    | Yes     |
+| 8367            | Other                    | Other                    | Yes     |
+| 8373            | Cause-Effect(e2,e1)      | Cause-Effect(e2,e1)      | Yes     |
+| 8398            | Other                    | Other                    | Yes     |
+| 8476            | Cause-Effect(e1,e2)      | Cause-Effect(e1,e2)      | Yes     |
+| 8493            | Cause-Effect(e2,e1)      | Cause-Effect(e2,e1)      | Yes     |
+| 8496            | Other                    | Other                    | Yes     |
+| 8503            | Cause-Effect(e2,e1)      | Cause-Effect(e2,e1)      | Yes     |
+| 8562            | Instrument-Agency(e2,e1) | Other                    | No      |
+| 8591            | Cause-Effect(e2,e1)      | Cause-Effect(e2,e1)      | Yes     |
+| 8610            | Other                    | Other                    | Yes     |
+| 8715            | Other                    | Other                    | Yes     |
+| 8734            | Other                    | Other                    | Yes     |
+| 8793            | Other                    | Other                    | Yes     |
+| 8876            | Other                    | Other                    | Yes     |
+| 8942            | Other                    | Other                    | Yes     |
+| 8953            | Cause-Effect(e2,e1)      | Cause-Effect(e2,e1)      | Yes     |
+| 9034            | Other                    | Other                    | Yes     |
+| 9215            | Other                    | Instrument-Agency(e2,e1) | No      |
+| 9332            | Other                    | Other                    | Yes     |
+| 9350            | Other                    | Other                    | Yes     |
+| 9383            | Product-Producer(e1,e2)  | Other                    | No      |
+| 9395            | Other                    | Other                    | Yes     |
+| 9433            | Product-Producer(e2,e1)  | Other                    | No      |
+| 9487            | Component-Whole(e2,e1)   | Instrument-Agency(e2,e1) | No      |
+| 9502            | Other                    | Other                    | Yes     |
+| 9512            | Component-Whole(e2,e1)   | Instrument-Agency(e2,e1) | No      |
+| 9537            | Other                    | Other                    | Yes     |
+| 9564            | Other                    | Other                    | Yes     |
+| 9620            | Other                    | Other                    | Yes     |
+| 9696            | Component-Whole(e1,e2)   | Instrument-Agency(e2,e1) | No      |
+| 9716            | Product-Producer(e2,e1)  | Product-Producer(e2,e1)  | Yes     |
+| 9800            | Other                    | Other                    | Yes     |
+| 9805            | Other                    | Other                    | Yes     |
+| 9817            | Other                    | Other                    | Yes     |
+| 9921            | Component-Whole(e2,e1)   | Component-Whole(e1,e2)   | No      |
+| 9940            | Other                    | Other                    | Yes     |
+| 10062           | Other                    | Other                    | Yes     |
+| 10173           | Other                    | Other                    | Yes     |
+| 10368           | Instrument-Agency(e2,e1) | Instrument-Agency(e2,e1) | Yes     |
+| 10402           | Other                    | Other                    | Yes     |
+| 10430           | Other                    | Other                    | Yes     |
+| 10548           | Other                    | Component-Whole(e1,e2)   | No      |
+| 10554           | Product-Producer(e2,e1)  | Product-Producer(e2,e1)  | Yes     |
+| 10583           | Other                    | Instrument-Agency(e2,e1) | No      |
+| 10584           | Cause-Effect(e1,e2)      | Cause-Effect(e1,e2)      | Yes     |
+| 10614           | Cause-Effect(e2,e1)      | Cause-Effect(e2,e1)      | Yes     |
++-----------------+--------------------------+--------------------------+---------+
+
+Error Analysis of wrongly-classified sentences in a set of 50 random sentences in the test set:
+
+Sentence 8018
+~~~~~~~~~~~~~
+Sentence: An FTP server is an inexpensive and relatively simple to operate tool that works great for <e1>filesharing</e1> over the <e2>internet</e2>.
+Predicted: Instrument-Agency(e2,e1)
+Actual: Other
+Analysis: Filesharing does use the internet, so it is not surprising that the model predicted Instrument-Agency. 
+
+Sentence 8190
+~~~~~~~~~~~~~
+Sentence: A busy <e1>crew</e1> behind the counter assembles the sandwiches with two pieces of fried chicken <e2>breast</e2>, which are beautifully battered.
+Predicted: Component-Whole(e2,e1) 
+Actual: Instrument-Agency(e2,e1)
+Analysis: This one is a bit confusing, since neither "breast," "chicken breast," nor "two pieces of friend chicken breast" can plausibly be components of a crew of fast food workers.
+
+Sentence 8562
+~~~~~~~~~~~~~
+Sentence: I can't help myself crying, especially when the <e1>girl</e1> went away from the <e2>boy</e2> in sadness during the boy was in hospital.
+Predicted: Instrument-Agency(e2,e1)
+Actual: Other
+Analysis: The model thinks that the girl somehow uses the boy to do something, but I cannot see how. There are no verbs that imply that the girl uses the boy.
+
+Sentence 9215
+~~~~~~~~~~~~~
+Sentence: The <e1>bootlegger</e1> bought his <e2>staples</e2> there, as well as apples for his mash.
+Predicted: Other
+Actual: Instrument-Agency(e2,e1)
+Analysis:
+
+Sentence 9383
+~~~~~~~~~~~~~
+Sentence: This reputation as a cheap filler for blends has meant <e1>grain</e1> <e2>whisky</e2> has been overlooked.
+Predicted: Product-Producer(e1,e2)
+Actual: Other
+Analysis: Grain is used to produce whiskey, therefore the predicted relation of Product-Producer is plausible.
+
+Sentence 9433
+~~~~~~~~~~~~~
+Sentence: A <e1>tree</e1> growing in the <e2>woods</e2> often develops long roots (15 to 25 feet) rather than a compact root system in order to compete with the roots of existing trees.
+Predicted: Product-Producer(e2,e1)
+Actual: Other
+Analysis: Trees do produce wood when we cut them down; perhaps the model was thinking of this scenario.
+
+Sentence 9487
+~~~~~~~~~~~~~
+Sentence: Experienced <e1>bakers</e1> hold the door open a crack with a wooden spoon <e2>handle</e2>.
+Predicted: Component-Whole(e2,e1)
+Actual: Instrument-Agency(e2,e1)
+Analysis: The model thought that handles were a component of bakers. Perhaps the model has not learned that bakers are humans, and humans by definition cannot have handles.
+
+Sentence 9512
+~~~~~~~~~~~~~
+Sentence: The <e1>grower</e1> had to "Flip plow" the field with a modified <e2>moldboard</e2>.
+Predicted: Component-Whole(e2,e1)
+Actual: Instrument-Agency(e2,e1)
+Analysis: The model has not learned that the verb "Flip plow" (which implies use) requires that the sentence be classified as Instrument-Agency.
+
+Sentence 9696
+~~~~~~~~~~~~~
+Sentence: The idea is the heatsink removes the heat from the CPU and the <e1>fan</e1> blasts the heatsink with the surrounding <e2>air</e2> cooling it down.
+Predicted: Component-Whole(e1,e2)
+Actual: Instrument-Agency(e2,e1)
+Analysis: Well, fans do use air in the sense that they need air to work.
+
+Sentence 9921
+~~~~~~~~~~~~~
+Sentence: He gets the door open easily and leads Sam inside, fingers curled into the front <e1>pocket</e1> of his <e2>jeans</e2>.
+Predicted: Component-Whole(e2,e1)
+Actual: Component-Whole(e1,e2)
+Analysis: The model predicted the correct relation but the wrong direction. 
+
+Sentence 10548
+~~~~~~~~~~~~~~
+Sentence: My second question is regarding the sale of bones and <e1>hide</e1> of <e2>tigers</e2> going on in Delhi.
+Predicted: Other
+Actual: Component-Whole(e1,e2)
+Analysis: Perhaps the model thought that "hide" was a verb instead of a noun.
+
+Sentence 10583
+~~~~~~~~~~~~~~
+Sentence: When she got home, the <e1>child</e1>, who was waiting for her, killed her with a rusty <e2>nail</e2>.
+Predicted: Other
+Actual: Instrument-Agency(e2,e1)
+Analysis: Children killing other people with nails is a very uncommon event, so it's not surprising that the model didn't pick up on the Instrument-Agency relation present in this sentence.
+
+Summary of errors:
+1. The most common ground truth relation of the incorrectly predicted sentences was Instrument-Agency (6/12).
+2. The most common predicted relation of the incorrectly predicted sentences was Component-Whole (5/12).
+3. There were 4 sentences where the predicted relation was Component-Whole but the ground truth relation was Instrument-Agency.
+4. Cause-Effect was neither a predicted relation or a ground truth relation in the incorrectly predicted sentences.
+
+Lessons Learned:
+This project taught me more about how to deal with an imbalanced dataset. 
+To balance the dataset, I tried upsampling members of the minority classes, but this resulted in both the training and validation accuracies being extremely low. 
+I did not feel comfortable with downsampling members of the majority class because this dataset is not very large.
+I also tried adding dropout since the test accuracy was ~30% lower than the training accuracy in my early experiments.
+However, adding dropout just lowered the training accuracy without noticeable improvements in the test accuracy.
+Finally, this project taught me the importance of hyperparameter tuning.
+Before hyperparameter tuning, my test accuracy was ~60%, which is the proportion of class 0 (the Other relation) in the test set. 
+This meant that my model was predicting Other for every sentence.
+After hyperparameter tuning with the Optuna library, my test accuracy rose to 71.70%, a nearly 12% improvement.
+
+Conclusions:
+1. Upsampling as a method to deal with a small, unbalanced dataset may not work well.
+2. Hyperparameter tuning is EXTREMELY important. 
+
